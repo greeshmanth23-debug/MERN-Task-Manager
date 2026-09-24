@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="https://img.icons8.com/3d-fluency/94/checked-2.png" alt="Todo App Logo" width="80"/>
+  <img src="https://img.icons8.com/3d-fluency/94/checked-2.png" alt="MERN Task Manager" width="80"/>
 </p>
 
-<h1 align="center">📝 Todo Fullstack App</h1>
+<h1 align="center">📝 MERN Task Manager</h1>
 
 <p align="center">
-  A modern, full-stack task management application built with <strong>React</strong>, <strong>Express</strong>, and <strong>MongoDB</strong>.
+  <strong>A full-stack task management app built to demonstrate my proficiency in React and the MERN stack.</strong>
   <br/>
-  Organize your life — add, edit, search, and track tasks with ease.
+  This project showcases my ability to build complete, production-style web applications from scratch — covering frontend UI, backend APIs, database design, routing, state management, and authentication flows.
 </p>
 
 <p align="center">
@@ -20,18 +20,34 @@
 
 ---
 
+## 🎯 Purpose
+
+This project was built as a **skill demonstration** to prove my hands-on expertise with:
+
+- ⚛️ **React 19** — Hooks, functional components, Context API, conditional rendering
+- 🔀 **React Router v7** — Client-side routing, dynamic routes, protected routes, navigation guards
+- 🌐 **RESTful API Design** — Building a clean Express backend with proper HTTP methods and status codes
+- 🗄️ **MongoDB + Mongoose** — Schema design, CRUD operations, document queries
+- 📡 **Axios** — HTTP client for seamless frontend ↔ backend communication
+- 🏗️ **Full-Stack Architecture** — Structuring a monorepo with separate client/server codebases
+
+> _This is not just a tutorial follow-along — I designed, structured, and coded every part of this application myself._
+
+---
+
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🔐 **User Authentication** | Register & login with per-user data isolation |
-| ➕ **Create Tasks** | Add tasks with title, due date, and status |
-| ✏️ **Edit Tasks** | Update any task's details in-place |
-| 🗑️ **Delete Tasks** | Remove tasks you no longer need |
-| ✅ **Toggle Status** | Mark tasks as done or pending with one click |
-| 🔍 **Search & Filter** | Instantly search through your task list |
-| 🛡️ **Protected Routes** | Only authenticated users can access the dashboard |
-| 📱 **Responsive UI** | Works beautifully on desktop and mobile |
+| Feature | What It Demonstrates |
+|---------|---------------------|
+| 🔐 **User Registration & Login** | Form handling, API integration, user session via localStorage |
+| ➕ **Create Tasks** | Controlled inputs, form validation, POST requests |
+| ✏️ **Edit Tasks** | Pre-populating forms, PUT requests, state management |
+| 🗑️ **Delete Tasks** | DELETE requests, optimistic UI updates |
+| ✅ **Toggle Done / Pending** | Status toggling with PUT, conditional CSS classes |
+| 🔍 **Real-time Search** | Client-side filtering with regex, instant feedback |
+| 🛡️ **Protected Routes** | Auth guards using React Context + React Router |
+| 📱 **Responsive Design** | Custom CSS, mobile-friendly layout |
+| 📄 **Task Detail View** | Dynamic routing with URL params, single-resource fetching |
 
 ---
 
@@ -39,38 +55,34 @@
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                       CLIENT                            │
+│                     FRONTEND (React)                    │
 │   React 19  ·  Vite 8  ·  React Router 7  ·  Axios     │
 │                                                         │
 │   ┌────────┐  ┌──────┐  ┌──────┐  ┌───────────────┐    │
 │   │ Login  │  │Signup│  │ Home │  │  Todo Detail   │    │
 │   └────┬───┘  └──┬───┘  └──┬───┘  └───────┬───────┘    │
-│        │         │         │               │            │
 │        └─────────┴─────────┴───────────────┘            │
 │                        │                                │
 │               Context API (Global State)                │
 └────────────────────────┬────────────────────────────────┘
-                         │  HTTP (REST API)
+                         │  REST API (HTTP)
                          ▼
 ┌────────────────────────────────────────────────────────┐
-│                       SERVER                            │
+│                    BACKEND (Express)                    │
 │         Express 5  ·  Mongoose 9  ·  CORS               │
 │                                                         │
-│   ┌──────────────────────────────────────────────┐      │
-│   │  POST /register    →  Create a new user      │      │
-│   │  POST /login       →  Authenticate user      │      │
-│   │  POST /addTodo     →  Create / Update task   │      │
-│   │  GET  /gettodo/:u  →  Get all user tasks     │      │
-│   │  GET  /todo/:id/:u →  Get single task        │      │
-│   │  PUT  /updatestatus→  Toggle done/pending    │      │
-│   │  DELETE /deleteTodo→  Remove a task          │      │
-│   └──────────────────────────────────────────────┘      │
+│   POST /register       →  Create new user               │
+│   POST /login          →  Authenticate user             │
+│   POST /addTodo        →  Create or update task         │
+│   GET  /gettodo/:user  →  Get all tasks for user        │
+│   GET  /todo/:id/:user →  Get single task               │
+│   PUT  /updatestatus   →  Toggle done/pending           │
+│   DELETE /deleteTodo   →  Remove a task                 │
 └────────────────────────┬────────────────────────────────┘
                          │
                          ▼
                ┌──────────────────┐
                │    MongoDB 🍃    │
-               │  (localhost:27017)│
                │                  │
                │  Users  │  Todos │
                └──────────────────┘
@@ -81,54 +93,57 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 19** — UI library with hooks and functional components
-- **Vite 8** — Lightning-fast dev server and build tool
-- **React Router DOM 7** — Client-side routing with protected routes
-- **Axios** — Promise-based HTTP client
-- **Context API** — Global state management
+| Technology | Why I Used It |
+|-----------|---------------|
+| **React 19** | Industry-standard UI library — demonstrates hooks, state, and component architecture |
+| **Vite 8** | Modern build tool — fast HMR, optimized production builds |
+| **React Router DOM 7** | Declarative routing with nested and protected routes |
+| **Axios** | Clean promise-based HTTP client for API calls |
+| **Context API** | Lightweight global state management without Redux overhead |
 
 ### Backend
-- **Express 5** — Minimal and flexible Node.js web framework
-- **Mongoose 9** — Elegant MongoDB object modeling
-- **CORS** — Cross-Origin Resource Sharing middleware
-- **Nodemon** — Auto-restart during development
+| Technology | Why I Used It |
+|-----------|---------------|
+| **Express 5** | Minimal, flexible Node.js framework for RESTful APIs |
+| **Mongoose 9** | Elegant schema-based MongoDB modeling |
+| **CORS** | Cross-origin support for frontend-backend communication |
 
 ### Database
-- **MongoDB** — NoSQL document database
+| Technology | Why I Used It |
+|-----------|---------------|
+| **MongoDB** | NoSQL document store — flexible schemas, fast iteration |
 
 ---
 
 ## 📂 Project Structure
 
 ```
-todo-fullstack-app/
+MERN-Task-Manager/
 │
-├── client/                      # React frontend
-│   ├── public/                  # Static assets
+├── client/                          # React frontend
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── home.jsx         # Dashboard — add, search, list tasks
-│   │   │   ├── home.css         # Dashboard styles
-│   │   │   ├── login.jsx        # Login page
-│   │   │   ├── signup.jsx       # Registration page
-│   │   │   ├── Todo.jsx         # Single task detail view
-│   │   │   ├── todo.css         # Task detail styles
-│   │   │   ├── protectedroute.jsx  # Auth guard for routes
-│   │   │   └── NotFound.jsx     # 404 page
-│   │   ├── context.js           # React Context for global state
-│   │   ├── App.jsx              # Root component with routing
-│   │   ├── App.css              # Global app styles
-│   │   ├── index.css            # Base styles
-│   │   └── main.jsx             # Entry point
+│   │   │   ├── home.jsx             # Dashboard — add, search, list tasks
+│   │   │   ├── home.css             # Dashboard styles
+│   │   │   ├── login.jsx            # Login page
+│   │   │   ├── signup.jsx           # Registration page
+│   │   │   ├── Todo.jsx             # Single task detail view
+│   │   │   ├── todo.css             # Task detail styles
+│   │   │   ├── protectedroute.jsx   # Auth guard component
+│   │   │   └── NotFound.jsx         # 404 page
+│   │   ├── context.js               # React Context for global state
+│   │   ├── App.jsx                  # Root component with routing
+│   │   ├── App.css                  # Global styles
+│   │   └── main.jsx                 # Entry point
 │   ├── index.html
 │   ├── vite.config.js
 │   └── package.json
 │
-├── server/                      # Express backend
+├── server/                          # Express backend
 │   ├── models/
-│   │   ├── user.js              # User schema (name, email, password)
-│   │   └── todo.js              # Todo schema (todoid, todo, date, status, userName)
-│   ├── index.js                 # Server entry — routes & DB connection
+│   │   ├── user.js                  # User schema (name, email, password)
+│   │   └── todo.js                  # Todo schema (todoid, todo, date, status, userName)
+│   ├── index.js                     # Server entry — routes & DB connection
 │   └── package.json
 │
 ├── .gitignore
@@ -141,102 +156,59 @@ todo-fullstack-app/
 
 ### Prerequisites
 
-Make sure you have the following installed:
+- **Node.js** v18+ — [Download](https://nodejs.org/)
+- **MongoDB** running locally on port `27017` — [Install Guide](https://www.mongodb.com/docs/manual/installation/)
 
-- **Node.js** (v18 or later) — [Download](https://nodejs.org/)
-- **MongoDB** (running locally on port `27017`) — [Install Guide](https://www.mongodb.com/docs/manual/installation/)
-
-### Installation
-
-**1. Clone the repository**
+### Installation & Setup
 
 ```bash
-git clone https://github.com/greeshmanth23-debug/todo-fullstack-app.git
-cd todo-fullstack-app
-```
+# 1. Clone the repo
+git clone https://github.com/greeshmanth23-debug/MERN-Task-Manager.git
+cd MERN-Task-Manager
 
-**2. Install server dependencies**
-
-```bash
+# 2. Install server dependencies
 cd server
 npm install
-```
 
-**3. Install client dependencies**
-
-```bash
+# 3. Install client dependencies
 cd ../client
 npm install
-```
 
-**4. Start MongoDB**
-
-Make sure MongoDB is running locally:
-
-```bash
+# 4. Make sure MongoDB is running
 mongod
+
+# 5. Start the backend (in /server)
+npm start                  # → runs on http://localhost:3001
+
+# 6. Start the frontend (in /client)
+npm run dev                # → runs on http://localhost:5173
 ```
-
-**5. Start the backend server**
-
-```bash
-cd server
-npm start
-```
-
-> Server runs on `http://localhost:3001`
-
-**6. Start the frontend dev server**
-
-```bash
-cd client
-npm run dev
-```
-
-> Client runs on `http://localhost:5173`
 
 ---
 
-## 🔌 API Reference
-
-### Authentication
-
-| Method | Endpoint | Body | Description |
-|--------|----------|------|-------------|
-| `POST` | `/register` | `{ name, email, password }` | Register a new user |
-| `POST` | `/login` | `{ email, password }` | Login and authenticate |
-
-### Todos
+## 🔌 API Endpoints
 
 | Method | Endpoint | Body / Params | Description |
 |--------|----------|---------------|-------------|
+| `POST` | `/register` | `{ name, email, password }` | Register a new user |
+| `POST` | `/login` | `{ email, password }` | Authenticate user |
 | `POST` | `/addTodo` | `{ todoid, todo, date, status, userName }` | Create or update a task |
 | `GET` | `/gettodo/:userName` | — | Fetch all tasks for a user |
 | `GET` | `/todo/:todoid/:userName` | — | Fetch a single task |
-| `PUT` | `/updatestatus/:todoid/:userName` | — | Toggle task status (done ↔ pending) |
+| `PUT` | `/updatestatus/:todoid/:userName` | — | Toggle status (done ↔ pending) |
 | `DELETE` | `/deleteTodo/:todoid/:userName` | — | Delete a task |
 
 ---
 
-## 📸 App Flow
+## 🧠 Key React Concepts Demonstrated
 
 ```
-   ┌──────────┐        ┌──────────┐        ┌──────────────┐
-   │  Signup   │───────▶│  Login   │───────▶│  Dashboard   │
-   └──────────┘        └──────────┘        │              │
-                                           │  • Add Task  │
-                                           │  • Search    │
-                                           │  • Edit      │
-                                           │  • Delete    │
-                                           │  • Toggle ✓  │
-                                           └──────┬───────┘
-                                                  │
-                                           ┌──────▼───────┐
-                                           │ Task Detail  │
-                                           │  • View info │
-                                           │  • Edit      │
-                                           │  • Delete    │
-                                           └──────────────┘
+✅ Functional Components          ✅ useState & useEffect
+✅ useContext (Global State)       ✅ useNavigate & useParams
+✅ Controlled Form Inputs          ✅ Conditional Rendering
+✅ Protected Route Pattern          ✅ Component Composition
+✅ Event Handling & Propagation    ✅ Dynamic List Rendering
+✅ Client-side Search/Filter       ✅ Axios HTTP Integration
 ```
 
 ---
@@ -260,5 +232,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/greeshmanth23-debug">greeshmanth23-debug</a>
+  Built with ❤️ by <a href="https://github.com/greeshmanth23-debug"><strong>Ravuri Greeshmanth Sai Venkatesh</strong></a>
+  <br/>
+  <em>Proving my React & MERN stack skills — one commit at a time.</em>
 </p>
